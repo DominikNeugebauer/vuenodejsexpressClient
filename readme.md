@@ -29,7 +29,8 @@ async loadPosts(){
 }
 </code>
 <p>Der Erste Parameter ist die URL. Danach kann man mit .then() den response herausfiltern und Alles damit machen was man möchte. In diesem Fall speichere ich die Daten des Servers in eine Variable. Post und delete ist sehr ähnlich.</p>
-<code>
+
+```
  async createPost() {
     this.isLoaded = false;
     const textSend = this.text;
@@ -45,7 +46,7 @@ async deletePost(id){
     this.posts = [];
     this.loadPosts();
 },
-</code>
+```
 
 <h2>Einbindung in Server</h2>
 <p>Wenn das Frontend fertiggestellt ist, kann man dieses "kompilieren" und ins backend einbinden. Zu erst muss "kompiliert" werden. Das geht mit dem Befehl npm run build. Dieser Befehl "kompiliert" das Projekt in einen neuen Ordner mit dem Namen dist. Dieser wird am Server gespeichert unter public (neu erstellen). Als nächstes muss definiert werden, dass der Server auch Datein im public Ordner verwenden darf.</p>
