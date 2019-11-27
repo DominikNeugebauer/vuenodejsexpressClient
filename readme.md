@@ -20,18 +20,20 @@
 
 <h2>Axios</h2>
 <p>Um mit Axios Requests zu behandeln gibt es eingebaute Funktionen. Wir benötigen in diesem Beispiel nut post, get und delete Requests. Die dazugehörigen Funktionen heißen axios.get, axios.post und axios.delete. Ein Beispiel mit get (Alle posts von der Datenbank holen):</p>
-<code>
+
+```
 async loadPosts(){
     await axios.get(this.url).then(response => {
     this.posts = response.data;
     this.isLoaded = true;
     });
 }
-</code>
+```
+
 <p>Der Erste Parameter ist die URL. Danach kann man mit .then() den response herausfiltern und Alles damit machen was man möchte. In diesem Fall speichere ich die Daten des Servers in eine Variable. Post und delete ist sehr ähnlich.</p>
 
 ```
- async createPost() {
+async createPost() {
     this.isLoaded = false;
     const textSend = this.text;
     await axios.post(this.url, {
@@ -51,14 +53,14 @@ async deletePost(id){
 <h2>Einbindung in Server</h2>
 <p>Wenn das Frontend fertiggestellt ist, kann man dieses "kompilieren" und ins backend einbinden. Zu erst muss "kompiliert" werden. Das geht mit dem Befehl npm run build. Dieser Befehl "kompiliert" das Projekt in einen neuen Ordner mit dem Namen dist. Dieser wird am Server gespeichert unter public (neu erstellen). Als nächstes muss definiert werden, dass der Server auch Datein im public Ordner verwenden darf.</p>
 
-<code>
+```
 app.use(express.static(__dirname + "/public"));
-</code>
+```
 
 <p>Die index.html Datei, welche erstellt wurde kann an den client gesendet werden mit der Methode res.sendFile().</p>
 
-<code>
+```
 res.sendFile(__dirname +"/public/index.html");
-</code>
+```
 
 <p>Nun ist das Projekt komplett. Bei Aufruf der definierten Rute wird die Datei an den Client gesendet. Der rest Bleibt gleich. !Wichtig: Die index.html Datei kann nur über einen webserver gestartet werden!</p>
