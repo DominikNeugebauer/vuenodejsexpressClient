@@ -21,18 +21,15 @@
 <h2>Axios</h2>
 <p>Um mit Axios Requests zu behandeln gibt es eingebaute Funktionen. Wir benötigen in diesem Beispiel nut post, get und delete Requests. Die dazugehörigen Funktionen heißen axios.get, axios.post und axios.delete. Ein Beispiel mit get (Alle posts von der Datenbank holen):</p>
 <code>
-```
 async loadPosts(){
     await axios.get(this.url).then(response => {
     this.posts = response.data;
     this.isLoaded = true;
     });
 }
-```
 </code>
 <p>Der Erste Parameter ist die URL. Danach kann man mit .then() den response herausfiltern und Alles damit machen was man möchte. In diesem Fall speichere ich die Daten des Servers in eine Variable. Post und delete ist sehr ähnlich.</p>
 <code>
-```
  async createPost() {
     this.isLoaded = false;
     const textSend = this.text;
@@ -48,7 +45,6 @@ async deletePost(id){
     this.posts = [];
     this.loadPosts();
 },
-```
 </code>
 
 <h2>Einbindung in Server</h2>
